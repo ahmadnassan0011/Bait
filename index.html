@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <title>Syrian Virtual University</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+</head>
+
+<body>
+    <center>
+        <h1>إضافه طالب</h1>
+    </center>
+    
+    <form onsubmit="return false;" method="get" name="formadduser">
+        <div class="container">
+
+            <div class="row">
+
+        <div class="column">
+            <label for="name"><b>اسم المستخدم</b></label><br>
+            <input type="text" placeholder="ادخل اسم المستخدم" ,id="username" , name="username" pattern="[a-z]+_+.*[0-9]" required><br>
+
+            <label for="student"><b>اسم الطالب </b></label><br>
+            <input type="text" placeholder="ادخل اسم الطالب" ,id="namestd" , name="namestd" pattern=".*[ء-ي]" required>
+            <br>
+            <label for="date"><b>تاريخ الولاده</b>
+        <br></label>
+            <input type="text" placeholder="mm/dd/yyyy" id="date" , name="date" pattern="(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}" required>
+            <br>
+            <label for="pro">البرنامج:</label> <br>
+            <select name="proo" id="programselected">
+  <option value="TIC">TIC</option>
+  <option value="BIT">BIT</option>
+  <option value="BAIT">BAIT</option>
+  <option value="ITE">ITE</option>
+    <option value="BACT">BACT</option>
+
+</select>
+            <br> <label for="phone"><b> الموبايل </b></label>
+           <br> <input type="text" placeholder="09639123411111" ,id="phone" ,name="phone" pattern="\+[0-9]{3}[0-9]{9}" value="+963" required><br>
+            <label for="verification"><b> يرجى ادخال رمز تحقق الكابتشا</b></label>
+
+            <br><input type="text" id="txtCaptcha" style="text-align: center; border: none; font-weight: bold; font-size: 20px; font-family: Modern" />
+            <input type="text" id="txtCompare" required/><br>
+            <input type="button" id="btnrefresh" value="تحديث" onclick="GenerateCaptcha();" />
+              </div>
+                     <div class="column">
+        <img src="image.png">
+
+    </div>
+    
+
+     </div>     
+            <button name="submit" onclick="addStd()">إضافه</button>
+
+    </form>
+ <center>
+        <h1> جدول اسماء الطلاب </h1>
+    </center>
+
+    <label for="pro">البرنامج:</label>
+    <center>
+        <select onchange="scheduleA.call(this, event)" name="proo" id="flitter">
+  <option value="all">All</option>
+  <option value="BAIT">BAIT</option>
+  <option value="ITE">ITE</option>
+    <option value="BACT">BACT</option>
+  <option value="TIC">TIC</option>
+  <option value="BIT">BIT</option>
+  
+
+ 
+</select></center>
+    <br>
+    <label for="pro">الفرز حسب : </label>
+    <center><input type="radio" id="idUser" name="sortradio" onchange="sort()" value="idUser">
+        <label for="id"> رقم المستخدم </label>
+        <input type="radio" id="name" name="sortradio" onchange="sort()" value="name">
+        <label for="name">اسم الطالب</label>
+        <input type="radio" id="Program" name="sortradio" onchange="sort()" value="Program">
+        <label for="Program">البرنامج</label></center>
+    <table id="tablestudant">
+        <tr>
+            <th> متسلسل </th>
+            <th> اسم المستخدم </th>
+            <th> اسم الطالب </th>
+            <th> البرنامج </th>
+        </tr>
+      
+        <tr>
+            <td>1</td>
+            <td>amar_1</td>
+            <td>عامر الحميدي</td>
+            <td>TIC</td>
+        </tr>
+          <tr>
+            <td>2</td>
+            <td>ahamd_12</td>
+            <td> احمد الكنجي </td>
+            <td>BACT</td>
+        </tr>
+    </table>
+
+    <button type="button" onclick="convertToJosn()">
+convert to Jason</button>
+    <textarea id="jsonarray" name="jsonarray" rows="20" cols="195">
+</textarea>
+</body>
+
+</html>
